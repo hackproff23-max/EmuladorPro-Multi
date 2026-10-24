@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- pasta EmuladorPro na memória interna -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+
+    <application>
+        <!-- aberta pelo menu "GBA" do app; não é mais a tela inicial do app -->
+        <activity android:name=".ui.LoadingActivity" android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+        <activity android:name=".ui.LibraryActivity" android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+        <activity android:name=".ui.SettingsActivity" android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|navigation|screenLayout|smallestScreenSize|uiMode|density|fontScale|locale|layoutDirection|colorMode" />
+    </application>
+</manifest>

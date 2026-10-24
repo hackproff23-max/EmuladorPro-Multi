@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- o módulo GBA exige Android 7.0 (API 24) -->
+    <bool name="gba_supported">false</bool>
+</resources>

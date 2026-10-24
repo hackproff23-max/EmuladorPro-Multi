@@ -1,0 +1,24 @@
+name: Build EmuladorPro Multi (APK debug)
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Instalar NDK e CMake
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "ndk;22.1.7171670" "cmake;3.22.1"
+      - name: Baixar núcleo mGBA (libretro)
+        run: bash gba/fetch_core.sh
+      - name: Compilar
+        run: ./gradlew assembleOpenDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EmuladorPro-Multi-debug
+          path: app/build/outputs/apk/open/debug/*.apk
